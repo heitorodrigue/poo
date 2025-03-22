@@ -3,15 +3,14 @@ package com.mycompany.veiculo;
 
 
 public class Carro {
-    private int quantidadee;
+    private int quantidadee = 0;
     private String modelo;
-    private Motorista motorista;
+    private Motorista[] motoristas= new Motorista[100];
     protected Motor motor;
 
     public Carro(String modelo) {
         this.modelo = modelo;
-        this.quantidadee++;
-        this.motor = new Motor();
+        this.motor = new Motor(90,"motor");
     }
 
     public String getModelo() {
@@ -21,13 +20,20 @@ public class Carro {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
+    public void dirigir(Motorista motorista){
+    for(int i=0;i<quantidadee;i++){
+    if(motoristas[i].getNome().equals(motorista.getNome())){
+        return;
+    }
+    }
+    if(quantidadee<motoristas.length){
+    motoristas[quantidadee] = motorista;
+    quantidadee++;
+    }
+    }
 
     public int getQuantidadee() {
         return quantidadee;
-    }
-
-    public Motorista getMotorista() {
-        return motorista;
     }
 
     public Motor getMotor() {
@@ -36,7 +42,7 @@ public class Carro {
     @Override
     public String toString(){
     return "Modelo: "+this.modelo+"\n"+"Motor: "+this.motor+"\n"
-            +"Quantidade de vezes usada: "+this.quantidadee;
+            +"Quantidade de vezes usada: "+getQuantidadee();
     }
     
 }

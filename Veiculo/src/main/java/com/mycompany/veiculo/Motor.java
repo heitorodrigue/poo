@@ -5,7 +5,9 @@ public class Motor {
     protected int potencia;
     protected String tipo;
 
-    public Motor(){ 
+    public Motor(int potencia, String tipo){
+        this.potencia = potencia;
+        this.tipo = tipo;
     }
 
    
@@ -27,7 +29,7 @@ public class Motor {
     
     @Override
     public String toString(){
-    return "Potencia: "+this.potencia+"\n"+
-            "Tipo: "+this.tipo;
+    return "Potencia: "+potencia+"\n"+
+            "Tipo: "+tipo;
     }
 }

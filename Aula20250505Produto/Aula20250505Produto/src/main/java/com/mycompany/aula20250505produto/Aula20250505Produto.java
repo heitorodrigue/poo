@@ -21,7 +21,10 @@ public class Aula20250505Produto {
         for(Produto p : listaGenerica){
             System.out.println(p.nome);
             p.ehCaro();
-            //p.ehGrande();
+             if (p instanceof Livro l) {
+                l.ehGrande();
+        }
+
         }
         
         

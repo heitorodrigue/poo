@@ -1,0 +1,52 @@
+package com.mycompany.aula20250508herancaclienteconta;
+
+public class Aula20250508HerancaClienteConta {
+
+    public static void main(String[] args) {
+       Cliente c1 = new Cliente("Heitor","000000");
+       Cliente c2 = new Cliente("Gustavo","111111");
+       
+       c1.adicionarContaCorrente(100);
+       c2.adicionarContaCorrente(200);
+       
+       c1.adicionarContaPoupanca(500);
+       c2.adicionarContaPoupanca(1000);
+       
+  c1.MostrarSaldo();
+  c2.MostrarSaldo();
+}
+}
+
+package com.mycompany.aula20250508herancaclienteconta;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cliente{
+     private String nome;
+     private String cpf;
+     private List<Conta>contas;
+     
+ public Cliente(String nome, String cpf){
+ this.nome=nome;
+ this.cpf=cpf;
+ this.contas= new ArrayList<>();
+ }
+
+public void adicionarContaCorrente(double saldo){
+this.contas.add(new ContaCorrente(saldo));
+}
+public void adicionarContaPoupanca(double saldo){
+this.contas.add(new ContaPoupanca(saldo));
+}
+public void MostrarSaldo(){
+for(Conta c: contas){
+System.out.printf("%s ", c.saldoTotal());
+}
+}
+
+}
+
+
+
+
